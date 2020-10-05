@@ -6,9 +6,14 @@ class Counter extends Component {
     count: 0,
     tags: [],
   };
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+    // means it will always bind with the object
+  }
 
   handleIncrement() {
-    console.log("Increment clicked!");
+    console.log("Increment clicked!", this);
   }
 
   render() {
