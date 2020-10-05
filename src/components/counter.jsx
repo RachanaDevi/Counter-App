@@ -6,11 +6,17 @@ class Counter extends Component {
     count: 1,
   };
 
-  styles = {};
+  styles = {
+    fontSize: 50,
+    fontWeight: "bold",
+  };
+
   render() {
     return (
       <React.Fragment>
-        <span className="badge badge-primary m-2">{this.formatCount()}</span>
+        <span style={this.styles} className="badge badge-primary m-2">
+          {this.formatCount()}
+        </span>
         <button className="btn btn-secondary btn-sm">Increment</button>
       </React.Fragment>
     ); //jsx expression which calls React.createElement, so you have to import
