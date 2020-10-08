@@ -14,7 +14,7 @@ class Counter extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <span style={{ fontSize: 30 }} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
@@ -24,7 +24,7 @@ class Counter extends Component {
         >
           Increment
         </button>
-      </React.Fragment>
+      </div>
     ); //jsx expression which calls React.createElement, so you have to import
   }
   getBadgeClasses() {
@@ -38,5 +38,4 @@ class Counter extends Component {
     return count === 0 ? "Zero" : count;
   }
 }
-
 export default Counter;
