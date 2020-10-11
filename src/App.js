@@ -30,13 +30,19 @@ class App extends React.Component {
   };
 
   handleDelete = (counterId) => {
-    const counters = this.state.counters.filter((c) => c.id !== counterId);
+    const counters = this.state.counters.filter(
+      (counter) => counter.id !== counterId
+    );
     this.setState({ counters });
   };
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar
+          totalCounters={
+            this.state.counters.filter((counter) => counter.value > 0).length
+          }
+        />
         <main className="container">
           <Counters
             counters={this.state.counters}
