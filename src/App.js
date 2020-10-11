@@ -37,7 +37,8 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <h1>Counter App</h1>
         <NavBar
           totalCounters={
             this.state.counters.filter((counter) => counter.value > 0).length
@@ -51,7 +52,7 @@ class App extends React.Component {
             onDelete={this.handleDelete}
           />
         </main>
-      </div>
+      </React.Fragment>
     );
   }
 }
