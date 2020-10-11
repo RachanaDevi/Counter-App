@@ -1,0 +1,23 @@
+image: node:14.8.0
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  stage: build
+  script:
+    - npm install
+
+run-unit-test:
+  stage: test
+  script:
+    - npm test
+
+deploy-staging:
+  stage: deploy
+  script:
+    - npm start
+  only:
+    - master
