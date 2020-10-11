@@ -5,10 +5,10 @@ stages:
   - test
   - deploy
 
-before_script:
+before-script:
   stage: build
   script:
-    - npm install
+    - npm install  
 
 run-unit-test:
   stage: test
