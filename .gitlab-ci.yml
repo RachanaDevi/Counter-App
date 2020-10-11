@@ -1,22 +1,35 @@
 image: node:14.8.0
 
 stages:
-  - build
+  - npm
   - test
   - deploy
 
-before-script:
-  stage: build
+npm-stage:
+  stage: npm
   script:
-    - npm install  
+    - npm config set registry ${CI_NPM_REGISTRY}
+    - npm  install
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    expire_in: 1 days
+    when: on_success
+    paths:
+      - node_modules/
 
 run-unit-test:
   stage: test
+  dependencies:
+    - npm-stage
   script:
     - npm test
 
 deploy-staging:
   stage: deploy
+  dependencies:
+    - npm-stage
   script:
     - npm start
   only:
